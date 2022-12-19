@@ -54,11 +54,11 @@ After you're finished please remove all the comments and instructions!
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [blogApp] <a name="about-project"></a>
+# 📖 [recipeApp] <a name="about-project"></a>
 
-> A simple ruby project for checking blogs written by different users
+> A simple ruby project for checking recipes written by different users
 
-**[blogApp]** is a...
+**[recipeapp]** is a...
 
 ## 🛠 Built With <a name="built-with"></a>
 
