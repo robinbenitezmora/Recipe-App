@@ -1,2 +1,14 @@
-<h1>Foods#index</h1>
-<p>Find me in app/views/foods/index.html.erb</p>
+<p><%= notice %></p>
+
+<h1>Listing foods</h1>
+
+<div id="foods">
+  <% @foods.each do |food| %>
+    <%= render food %>
+    <p>
+      <%= link_to 'Show', food %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to 'New Food', new_food_path %>
