@@ -23,7 +23,9 @@ default: &default
 
 development:
   <<: *default
-  database: Recipe_App_development
+  database: recipedb
+  username: postgres
+  password: peti2020#
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
