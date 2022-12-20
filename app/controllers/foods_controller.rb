@@ -9,12 +9,15 @@ class FoodsController < ApplicationController
 
   def new
     @food = Food.new
+    @user = current_user
   end
 
   def edit; end
 
   def create
     @food = Food.new(food_params)
+    @food.user_id = current_user.id
+
     respond_to do |format|
       if @food.save
         format.html { redirect_to food_url(@food), notice: 'Food was successfully created.' }
@@ -53,6 +56,6 @@ class FoodsController < ApplicationController
   end
 
   def food_params
-    params.require(:food).permit(:name, :measurement_unit, :price, :quantity, :user_id)
+    params.require(:food).permit(:name, :measurement_unit, :price, :quantity)
   end
 end
