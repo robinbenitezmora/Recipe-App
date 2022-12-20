@@ -1,5 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe "users/index.html.erb", type: :view do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before(:each) do
+    assign(:users, [
+      User.create!(
+        :name => "Name"
+      ),
+      User.create!(
+        :name => "Name"
+      )
+    ])
+  end
+
+  it "renders a list of users" do
+    render
+    assert_select "tr>td", :text => "Name".to_s, :count => 2
+  end
 end
