@@ -1,19 +1,17 @@
 class FoodsController < ApplicationController
   before_action :set_food, only: %i[show edit update destroy]
-   
+
   def index
     @foods = Food.all
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @food = Food.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @food = Food.new(food_params)
@@ -49,11 +47,12 @@ class FoodsController < ApplicationController
   end
 
   private
-    def set_food
-      @food = Food.find(params[:id])
-    end
 
-    def food_params
-      params.require(:food).permit(:name, :measurement_unit, :price, :quantity, :user_id)
-    end
+  def set_food
+    @food = Food.find(params[:id])
+  end
+
+  def food_params
+    params.require(:food).permit(:name, :measurement_unit, :price, :quantity, :user_id)
+  end
 end

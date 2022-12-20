@@ -1,17 +1,17 @@
 require 'rails_helper'
 
-RSpec.describe "users/edit", type: :view do
-  let(:user) { User.create!(name: "Example User") }
+RSpec.describe 'users/edit', type: :view do
+  let(:user) { User.create!(name: 'Example User') }
 
   before(:each) do
     @user = assign(:user, user)
   end
 
-  it "renders the edit user form" do
+  it 'renders the edit user form' do
     render
 
-    assert_select "form[action=?][method=?]", user_path(@user), "post" do
-      assert_select "input[name=?]", "user[name]"
+    assert_select 'form[action=?][method=?]', user_path(@user), 'post' do
+      assert_select 'input[name=?]', 'user[name]'
     end
   end
 end
