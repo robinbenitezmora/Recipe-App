@@ -13,12 +13,13 @@
   <body>
     <header>
       <div>Logo</div>
-      <ul>
-        <li>
-          <a href="/">Recipes Index</a>
-        </li>
+      <ul id="links">
+        <li><%= link_to "Users Index", users_path %></li>
+        <li><%= link_to "Recipes Index", root_path %></li>
+        <li><%= link_to "Foods Index", foods_path %></li>
+        <li><%= link_to "Recipe foods Index", recipe_foods_path %></li>
       </ul>
-      <ul>
+      <ul id="links">
         <% if user_signed_in? %>
           <h3>Welcome <%= current_user.name %></h3>
           <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
