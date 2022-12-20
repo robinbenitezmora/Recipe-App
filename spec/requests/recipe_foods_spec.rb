@@ -1,53 +1,117 @@
 require 'rails_helper'
 
-RSpec.describe "RecipeFoods", type: :request do
+RSpec.describe "/recipe_foods", type: :request do
+  let(:valid_attributes) {
+    skip("Add a hash of attributes valid for your model")
+  }
+
+  let(:invalid_attributes) {
+    skip("Add a hash of attributes invalid for your model")
+  }
+
   describe "GET /index" do
-    it "returns http success" do
-      get "/recipe_foods/index"
-      expect(response).to have_http_status(:success)
+    it "renders a successful response" do
+      RecipeFood.create! valid_attributes
+      get recipe_foods_url
+      expect(response).to be_successful
     end
   end
 
   describe "GET /show" do
-    it "returns http success" do
-      get "/recipe_foods/show"
-      expect(response).to have_http_status(:success)
+    it "renders a successful response" do
+      recipe_food = RecipeFood.create! valid_attributes
+      get recipe_food_url(recipe_food)
+      expect(response).to be_successful
     end
   end
 
-  describe "GET /new" do
-    it "returns http success" do
-      get "/recipe_foods/new"
-      expect(response).to have_http_status(:success)
+  describe "GET /new" do  
+    it "renders a successful response" do
+      get new_recipe_food_url
+      expect(response).to be_successful
     end
   end
 
   describe "GET /edit" do
-    it "returns http success" do
-      get "/recipe_foods/edit"
-      expect(response).to have_http_status(:success)
+    it "renders a successful response" do
+      recipe_food = RecipeFood.create! valid_attributes
+      get edit_recipe_food_url(recipe_food)
+      expect(response).to be_successful
     end
   end
 
-  describe "GET /create" do
-    it "returns http success" do
-      get "/recipe_foods/create"
-      expect(response).to have_http_status(:success)
+  describe "POST /create" do
+    context "with valid parameters" do
+      it "creates a new RecipeFood" do
+        expect {
+          post recipe_foods_url, params: { recipe_food: valid_attributes }
+        }.to change(RecipeFood, :count).by(1)
+      end
+
+      it "redirects to the created recipe_food" do
+        post recipe_foods_url, params: { recipe_food: valid_attributes }
+        expect(response).to redirect_to(recipe_food_url(RecipeFood.last))
+      end
+    end
+
+    context "with invalid parameters" do
+      it "does not create a new RecipeFood" do
+        expect {
+          post recipe_foods_url, params: { recipe_food: invalid_attributes }
+        }.to change(RecipeFood, :count).by(0)
+      end
+
+      it "renders a successful response with 422 status" do
+        post recipe_foods_url, params: { recipe_food: invalid_attributes }
+        expect(response).to be_successful
+        expect(response.status).to eq(422)
+      end
     end
   end
 
-  describe "GET /update" do
-    it "returns http success" do
-      get "/recipe_foods/update"
-      expect(response).to have_http_status(:success)
+  describe "PATCH /update" do
+    context "with valid parameters" do
+      let(:new_attributes) {
+        skip("Add a hash of attributes valid for your model")
+      }
+
+      it "updates the requested recipe_food" do
+        recipe_food = RecipeFood.create! valid_attributes
+        patch recipe_food_url(recipe_food), params: { recipe_food: new_attributes }
+        recipe_food.reload
+        skip("Add assertions for updated state")
+      end
+
+      it "redirects to the recipe_food" do
+        recipe_food = RecipeFood.create! valid_attributes
+        patch recipe_food_url(recipe_food), params: { recipe_food: new_attributes }
+        recipe_food.reload
+        expect(response).to redirect_to(recipe_food_url(recipe_food))
+      end
+    end
+
+    context "with invalid parameters" do
+      it "renders a successful response with 422 status" do
+        recipe_food = RecipeFood.create! valid_attributes
+        patch recipe_food_url(recipe_food), params: { recipe_food: invalid_attributes }
+        expect(response).to be_successful
+        expect(response.status).to eq(422)
+      end
     end
   end
 
-  describe "GET /destroy" do
-    it "returns http success" do
-      get "/recipe_foods/destroy"
-      expect(response).to have_http_status(:success)
+  describe "DELETE /destroy" do
+    it "destroys the requested recipe_food" do
+      recipe_food = RecipeFood.create! valid_attributes
+      expect {
+        delete recipe_food_url(recipe_food)
+      }.to change(RecipeFood, :count).by(-1)
+    end
+
+    it "redirects to the recipe_foods list" do
+      recipe_food = RecipeFood.create! valid_attributes
+      delete recipe_food_url(recipe_food)
+      expect(response).to redirect_to(recipe_foods_url)
     end
   end
-
 end
