@@ -14,10 +14,9 @@
     <header>
       <div>Logo</div>
       <ul id="links">
-        <li><%= link_to "Users Index", users_path %></li>
-        <li><%= link_to "Recipes Index", root_path %></li>
-        <li><%= link_to "Foods Index", foods_path %></li>
-        <li><%= link_to "Recipe foods Index", recipe_foods_path %></li>
+        <li><%= link_to "My Recipes", root_path %></li>
+        <li><%= link_to "My Foods", foods_path %></li>
+        <li><%= link_to "Recipe foods index", recipe_foods_path %></li>
       </ul>
       <ul id="links">
         <% if user_signed_in? %>
