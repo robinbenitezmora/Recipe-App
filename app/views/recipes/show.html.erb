@@ -1,2 +1,9 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<p><%= notice %></p>
+
+<%= render @recipe %>
+
+<div>
+  <%= link_to 'Back', recipes_path %>
+  <%= link_to 'Edit', edit_recipe_path(@recipe) %>
+  <%= link_to 'Destroy', @recipe, method: :delete %>
+</div>

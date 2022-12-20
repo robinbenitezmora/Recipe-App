@@ -1,2 +1,12 @@
-<h1>Recipes#index</h1>
-<p>Find me in app/views/recipes/index.html.erb</p>
+<p><%= notice %></p>
+
+<h1>Recipes</h1>
+
+<div id="recipes">
+  <% @recipes.each do |recipe| %>
+    <%= render recipe %>
+    <p><%= link_to 'Show the recipe', recipe %></p>
+  <% end %>
+</div>
+
+<%= link_to 'New Recipe', new_recipe_path %>
