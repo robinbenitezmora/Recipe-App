@@ -1,4 +1,4 @@
-<p><%= notice %></p>
+<%# <p><%= notice %></p>
 
 <%= render @food %>
 
@@ -7,4 +7,13 @@
   <%= link_to 'Back', foods_path %> |
   <%= link_to 'Edit', edit_food_path(@food) %>
   <%= button_to 'Destroy', @food, method: :delete %>
+</div>
+<p><%= notice %></p> %>
+
+<%= render @recipe_food %>
+
+<div>
+  <%= link_to 'Edit', edit_recipe_food_path(@recipe_food) %> |
+  <%= link_to 'Back', recipe_foods_path %>
+  <%= button_to 'Destroy', @recipe_food, method: :delete %>
 </div>

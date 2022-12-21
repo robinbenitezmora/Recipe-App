@@ -1,3 +1,6 @@
+<%= stylesheet_link_tag "application"%>
+
+<div class="logger_in_form">
 <%= form_with(model: recipe_food) do |form| %>
   <% if recipe_food.errors.any? %>
     <div id="error_explanation">
@@ -11,20 +14,22 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field custom-login">
     <%= form.label :recipe_id %>
     <%= form.text_field :recipe_id %>
   </div>
-  <div class="field">
+  <div class="field custom-login">
     <%= form.label :food_id %>
     <%= form.text_field :food_id %>
   </div>
-  <div class="field">
+  <div class="field custom-login">
     <%= form.label :quantity %>
     <%= form.number_field :quantity %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions custom-login">
+    <button class="mybtn" type="button"><%= form.submit %></button>
   </div>
 <% end %>
+
+</div>

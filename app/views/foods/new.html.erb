@@ -5,3 +5,15 @@
 <div>
   <%= link_to 'Back', foods_path %>
 </div>
+<%= stylesheet_link_tag "application"%>
+
+<div class="logger_in_form">
+<h1 class="custom-login">New Food</h1>
+
+<%= render 'form', recipe_food: @food %>
+
+<div class="actions">
+  <%= link_to 'Back', foods_path %>
+</div>
+
+</div>
