@@ -1,8 +1,12 @@
-<h1>Editing Food</h1>
+<%= stylesheet_link_tag "application"%>
+
+<div class="logger_in_form">
+<h1 class="custom-login">Editing Food</h1>
 
 <%= render 'form', food: @food %>
 
 <div>
   <%= link_to 'Show', @food %> |
   <%= link_to 'Back', foods_path %>
+</div>
 </div>

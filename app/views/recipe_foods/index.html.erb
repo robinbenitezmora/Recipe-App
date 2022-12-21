@@ -1,6 +1,10 @@
+
+<%= stylesheet_link_tag "application"%>
+
+<div class="logger_in_form">
 <p><%= notice %></p>
 
-<h1>Listing Recipe Foods</h1>
+<h1 class="custom-login">Listing Recipe Foods</h1>
 
 <div id="recipe_foods">
   <% @recipe_foods.each do |recipe_food| %>
@@ -12,3 +16,4 @@
 </div>
 
 <%= link_to 'New Recipe Food', new_recipe_food_path %>
+</div>

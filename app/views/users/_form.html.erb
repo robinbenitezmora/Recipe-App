@@ -1,3 +1,6 @@
+<%= stylesheet_link_tag "application"%>
+
+<div class="logger_in_form">
 <%= form_with(model: user) do |form| %>
   <% if user.errors.any? %>
     <div id="error_explanation">
@@ -11,12 +14,13 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field custom-login">
     <%= form.label :name %>
     <%= form.text_field :name %>
   </div>
 
-  <div class="field">
+  <div class="field custom-login">
     <%= form.submit %>
   </div>
 <% end %>
+</div>

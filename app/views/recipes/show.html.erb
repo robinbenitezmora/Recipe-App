@@ -1,3 +1,6 @@
+<%= stylesheet_link_tag "application"%>
+
+<div class="logger_in_form">
 <p><%= notice %></p>
 
 <%= render @recipe %>
@@ -6,4 +9,5 @@
   <%= link_to 'Back', recipes_path %>
   <%= link_to 'Edit', edit_recipe_path(@recipe) %>
   <%= link_to 'Destroy', @recipe, method: :delete %>
+</div>
 </div>

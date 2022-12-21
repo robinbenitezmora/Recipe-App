@@ -1,3 +1,6 @@
+<%= stylesheet_link_tag "application"%>
+
+<div class="logger_in_form">
 <div id="<%= dom_id(food) %>">
   <p><strong><%= food.id %> </strong></p>
   <p><strong><%= food.name %> </strong></p>
@@ -6,4 +9,5 @@
   <p class="price"><%= food.quantity %> <%= food.measurement_unit %></p>
   <p class="price"><%= food.user_id %></p>
   <%= button_to "Delete Food", @food, method: :delete %>
+</div>
 </div>
