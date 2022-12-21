@@ -34,6 +34,7 @@ RSpec.configure do |config|
     DatabaseCleaner.strategy = :truncation
   end
 
+  config.include Warden::Test::Helpers
   # This block must be here, do not combine with the other `before(:each)` block.
   # This makes it so Capybara can see the database.
   config.before(:each) do
