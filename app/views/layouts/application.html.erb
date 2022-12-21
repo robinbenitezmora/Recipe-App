@@ -12,20 +12,20 @@
 
   <body>
     <header>
-      <div>Logo</div>
+      <div class="logo">Logo</div>
       <ul id="links">
-        <li><%= link_to "My Recipes", root_path %></li>
-        <li><%= link_to "My Foods", foods_path %></li>
-        <li><%= link_to "Recipe foods index", recipe_foods_path %></li>
+        <a class="link-item"><%= link_to "My Recipes", root_path %></a>
+        <a><%= link_to "My Foods", foods_path %></a>
+        <a><%= link_to "Recipe foods index", recipe_foods_path %></a>
       </ul>
       <ul id="links">
         <% if user_signed_in? %>
           <h3>Welcome <%= current_user.name %></h3>
-          <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-          <li><%= link_to "Edit Profile", edit_user_registration_path %></li>
+          <a><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></a>
+          <a><%= link_to "Edit Profile", edit_user_registration_path %></a>
         <% else %>
-          <li><%= link_to "Sign In", new_user_session_path %></li>
-          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <a><%= link_to "Sign In", new_user_session_path %></a>
+          <a><%= link_to "Sign Up", new_user_registration_path %></a>
         <% end %>
       </ul>
     </header>
