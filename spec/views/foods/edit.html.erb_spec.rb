@@ -4,7 +4,7 @@ RSpec.describe 'foods/edit', type: :view do
   let(:food) do
     Food.create!(
       name: 'MyString',
-      measurement_unit: 'MyString',
+      measurementunit: 'MyString',
       price: '10.5',
       quantity: '10',
       user: nil
@@ -21,7 +21,7 @@ RSpec.describe 'foods/edit', type: :view do
     assert_select 'form[action=?][method=?]', food_path(food), 'post' do
       assert_select 'input[name=?]', 'food[name]'
 
-      assert_select 'input[name=?]', 'food[measurement_unit]'
+      assert_select 'input[name=?]', 'food[measurementunit]'
 
       assert_select 'input[name=?]', 'food[price]'
 
