@@ -4,8 +4,8 @@ RSpec.describe Recipe, type: :model do
   subject do
     Recipe.new(
       name: 'Beans',
-      preparation_time: 20,
-      cooking_time: 30,
+      preparationtime: 20,
+      cookingtime: 30,
       description: 'Beans Soap',
       public: true,
       user_id: 1
@@ -20,7 +20,7 @@ RSpec.describe Recipe, type: :model do
   end
 
   it 'cooking_time should be present' do
-    subject.cooking_time = nil
+    subject.cookingtime = nil
     expect(subject).to_not be_valid
   end
 
@@ -40,11 +40,7 @@ RSpec.describe Recipe, type: :model do
   end
 
   it 'cooking_time must be a integer greater or equal than zero' do
-    subject.cooking_time = -1
+    subject.cookingtime = -1
     expect(subject).to_not be_valid
-  end
-
-  it 'is valid with valid attributes' do
-    expect(subject).to be_valid
   end
 end

@@ -1,8 +1,14 @@
+<%= stylesheet_link_tag "application"%>
+
+<div class="logger_in_form">
 <p><%= notice %></p>
 
-<h1>Listing foods</h1>
-<h2>My Favourite Foods</h2>
+<h1 class="custom-login">Listing foods</h1>
+<h2 class="custom-login">My Favourite Foods</h2>
 
+<%= stylesheet_link_tag "application"%>
+
+<div class="logger_in_form">
 <div id="foods">
   <div class="food">
     <p><strong>Food ID: </strong></p>
@@ -16,4 +22,5 @@
   <%= @foods.each do |food| %>
     <%= render food %>
   <% end %>
+</div>
 </div>

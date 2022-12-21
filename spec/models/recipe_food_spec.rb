@@ -30,8 +30,4 @@ RSpec.describe RecipeFood, type: :model do
     subject.quantity = -1
     expect(subject).to_not be_valid
   end
-
-  it 'is valid with valid attributes' do
-    expect(subject).to be_valid
-  end
 end

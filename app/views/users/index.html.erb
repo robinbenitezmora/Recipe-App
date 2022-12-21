@@ -1,5 +1,7 @@
 <p><%= notice %></p>
+<%= stylesheet_link_tag "application"%>
 
+<div class="logger_in_form">
 <h1>Users</h1>
 
 <div id="users">
@@ -9,6 +11,7 @@
       <%= link_to 'Show', user %>
     </p>
   <% end %>
+</div>
 </div>
 
 <%= link_to 'New User', new_user_path %>

@@ -1,16 +1,19 @@
+<%= stylesheet_link_tag "application"%>
+
+<div class="logger_in_form">
 <div id="<%= dom_id recipe %>">
-  <p><strong>Recipe ID: </strong>
+  <p class="custom-login"><strong>Recipe ID: </strong>
     <%= recipe.id %>
   </p>
   <p><strong>Name: </strong>
     <%= recipe.name %>
   </p>
   <p><strong>Preparation time: </strong>
-    <%= recipe.preparation_time %> minutes
+    <%= recipe.preparationtime %> minutes
   </p>
 
   <p><strong>Cooking time: </strong>
-    <%= recipe.cooking_time %> minutes
+    <%= recipe.cookingtime %> minutes
   </p>
 
   <p><strong>Description: </strong>
@@ -25,4 +28,5 @@
     <%= recipe.user_id %>
   </p>
 
+</div>
 </div>
