@@ -1,116 +1,116 @@
 .all_users {
-    margin: auto;
-    width: 70vw;
-  }
+  margin: auto;
+  width: 70vw;
+}
 
-  a {
-    text-decoration: none;
-    color: rgb(233, 102, 193);
-    gap: 30px;
-  }
+a {
+  text-decoration: none;
+  color: rgb(233, 102, 193);
+  gap: 30px;
+}
 
-  .particular_user {
-    margin: 10px auto;
-    width: 70vw;
-    border: 1px solid black;
-  }
+.particular_user {
+  margin: 10px auto;
+  width: 70vw;
+  border: 1px solid black;
+}
 
-  h3 {
-    background-color: #f1d4bc;
-    padding: 1.2rem;
-    font-weight: 600;
-  }
+h3 {
+  background-color: #f1d4bc;
+  padding: 1.2rem;
+  font-weight: 600;
+}
 
-  .particular_user h3,
-  p {
-    margin-left: 30px;
-  }
+.particular_user h3,
+p {
+  margin-left: 30px;
+}
 
-  .user-com-likes {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 30px;
-  }
+.user-com-likes {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 30px;
+}
 
-  .user-container {
-    display: flex;
-    padding: 5px;
-    margin: 10px auto;
-    align-items: center;
-  }
+.user-container {
+  display: flex;
+  padding: 5px;
+  margin: 10px auto;
+  align-items: center;
+}
 
-  .single-user {
-    margin-left: 20px;
-    border: 1px solid black;
-    width: 100%;
-    height: 160px;
-  }
+.single-user {
+  margin-left: 20px;
+  border: 1px solid black;
+  width: 100%;
+  height: 160px;
+}
 
-  h2 {
-    font-size: 2.4rem;
-    font-weight: 700;
-    color: #212529;
-  }
+h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #212529;
+}
 
-  .single-user h2 {
-    margin-left: 30px;
-  }
+.single-user h2 {
+  margin-left: 30px;
+}
 
-  .single-user-insider {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 30px;
-  }
+.single-user-insider {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 30px;
+}
 
-  .single-post {
-    margin-left: 20px;
-    border: 1px solid black;
-    width: 100%;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-  }
+.single-post {
+  margin-left: 20px;
+  border: 1px solid black;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+}
 
-  .single-post p,
-  .single-post-top p {
-    margin-left: 20px;
-  }
+.single-post p,
+.single-post-top p {
+  margin-left: 20px;
+}
 
-  .single-post-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
+.single-post-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  .single-post-top-content,
-  .singler-user-p {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-right: 25px;
-  }
+.single-post-top-content,
+.singler-user-p {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 25px;
+}
 
-  .all-coments-in-posts-outer {
-    border: 1px solid black;
-    width: 66vw;
-    margin: 10px auto;
-    padding: 5px;
-  }
+.all-coments-in-posts-outer {
+  border: 1px solid black;
+  width: 66vw;
+  margin: 10px auto;
+  padding: 5px;
+}
 
-  .all-coments-in-posts {
-    display: flex;
-  }
+.all-coments-in-posts {
+  display: flex;
+}
 
-  .user-btn {
-    text-align: center;
-  }
+.user-btn {
+  text-align: center;
+}
 
-  .user-btn button {
-    width: 150px;
-    height: 50px;
-  }
+.user-btn button {
+  width: 150px;
+  height: 50px;
+}
 
-  /*
+/*
      * This is a manifest file that'll be compiled into application.css, which will include all the files
      * listed below.
      *
@@ -126,201 +126,201 @@
      *= require_self
      */
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  html {
-    /* 10px / 16px = 0.625 = 62.5% */
-    font-size: 62.5%;
-  }
+html {
+  /* 10px / 16px = 0.625 = 62.5% */
+  font-size: 62.5%;
+}
 
-  body {
-    font-family: sans-serif;
-    line-height: 1;
-    font-weight: 400;
-    color: #555;
-  }
+body {
+  font-family: sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+}
 
-  .users_list {
-    max-width: 130rem;
-    margin: 0 auto;
-    padding: 2.4rem 3.2rem;
-    background-color: #faf1e9;
-    display: flex;
-    flex-direction: column;
-  }
+.users_list {
+  max-width: 130rem;
+  margin: 0 auto;
+  padding: 2.4rem 3.2rem;
+  background-color: #faf1e9;
+  display: flex;
+  flex-direction: column;
+}
 
-  .users {
-    display: flex;
-    gap: 2.4rem;
-    margin: 3.2rem;
-  }
+.users {
+  display: flex;
+  gap: 2.4rem;
+  margin: 3.2rem;
+}
 
-  .info {
-    width: 50rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1.2rem;
-    border: 3px solid #333;
-    padding: 1.2rem;
-    background-color: #f1d4bc;
-  }
+.info {
+  width: 50rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.2rem;
+  border: 3px solid #333;
+  padding: 1.2rem;
+  background-color: #f1d4bc;
+}
 
-  .users a {
-    text-decoration: none;
-    color: #333;
-  }
+.users a {
+  text-decoration: none;
+  color: #333;
+}
 
-  .user_name {
-    font-size: 3.2rem;
-    font-weight: 600;
-  }
+.user_name {
+  font-size: 3.2rem;
+  font-weight: 600;
+}
 
-  .user_image {
-    border: 3px solid #333;
-  }
+.user_image {
+  border: 3px solid #333;
+}
 
-  .container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.2rem;
-    max-width: 130rem;
-    margin: 0 auto;
-    padding: 2.4rem 3.2rem;
-    background-color: #faf1e9;
-  }
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+  max-width: 130rem;
+  margin: 0 auto;
+  padding: 2.4rem 3.2rem;
+  background-color: #faf1e9;
+}
 
-  .form {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-  }
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
 
-  .field {
-    width: 40rem;
-    border: 1px solid #fff;
-    border-radius: 4px;
-    font-size: 1.6rem;
-    font-weight: 500;
-    margin-top: 20px;
-    margin-bottom: 15px;
-  }
+.field {
+  width: 40rem;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
 
-  .field input {
-    width: 100%;
-    height: 3.6rem;
-    margin-top: 1.2rem;
-  }
+.field input {
+  width: 100%;
+  height: 3.6rem;
+  margin-top: 1.2rem;
+}
 
-  .btn {
-    width: 10rem;
-    height: 3.2rem;
-    align-self: center;
-    background-color: #f1d4bc;
-    cursor: pointer;
-    border: 1px solid #fff;
-    border-radius: 4px;
-    transition: all 1s;
-    font-size: 1.6rem;
-    font-weight: 600;
-  }
+.btn {
+  width: 10rem;
+  height: 3.2rem;
+  align-self: center;
+  background-color: #f1d4bc;
+  cursor: pointer;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  transition: all 1s;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
 
-  .btn:hover {
-    background-color: #faf1e9;
-  }
+.btn:hover {
+  background-color: #faf1e9;
+}
 
-  .container1 {
-    width: 50%;
-    margin: 8% 25%;
-    padding: 1.3rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.075rem;
-    border: 1px solid #212529;
-    background-color: #faf1e9;
-  }
+.container1 {
+  width: 50%;
+  margin: 8% 25%;
+  padding: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.075rem;
+  border: 1px solid #212529;
+  background-color: #faf1e9;
+}
 
-  .label-pass {
-    display: inline-block;
-    font-size: 1.6rem;
-    font-weight: 500;
-    margin-top: 1.2rem;
-  }
+.label-pass {
+  display: inline-block;
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-top: 1.2rem;
+}
 
-  .check {
-    margin: 15px auto;
-    display: flex;
-    font-size: 13px;
-  }
+.check {
+  margin: 15px auto;
+  display: flex;
+  font-size: 13px;
+}
 
-  .links {
-    text-decoration: none;
-    color: #333;
-    transition: all 1s;
-    font-size: 14px;
-    margin: 7px 0;
-  }
+.links {
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  margin-right: 20%;
+}
 
-  .links:hover {
-    color: #796a5e;
-  }
+/* .links {
+  text-decoration: none;
+  color: #333;
+  transition: all 1s;
+  font-size: 14px;
+  margin: 7px 0;
+} */
 
-  .logger_in_form {
-    text-align: center;
-    margin-top: 20px;
-  }
+.links:hover {
+  color: #796a5e;
+}
 
-  .custom-login {
-    margin: auto;
-    padding-top: 30px;
-  }
+.logger_in_form {
+  text-align: center;
+  margin-top: 20px;
+}
 
-  .mybtn {
-    margin: 30px;
-    height: 50px;
-    width: 30%;
-  }
+.custom-login {
+  margin: auto;
+  padding-top: 30px;
+}
 
-  .mybtn2 {
-    display: block;
-    margin: 20px 0;
-    height: 40px;
-    width: 50%;
-  }
+.mybtn {
+  margin: 30px;
+  height: 50px;
+  width: 30%;
+}
 
-  header {
-    background-color: #333;
-    color: #fff;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 25px 25px;
-  }
+.mybtn2 {
+  display: block;
+  margin: 20px 0;
+  height: 40px;
+  width: 50%;
+}
 
-  .logo {
-    font-size: 2.5rem;
-    font-weight: bold;
-    margin-left: 20%;
-  }
+header {
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 25px;
+}
 
-  .links {
-    display: flex;
-    flex-direction: space-between;
-    gap: 50px;
-    margin-right: 20%;
-  }
+.logo {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-left: 20%;
+}
 
-  .links a {
-    color: #fff;
-    text-decoration: none;
-    margin-left: 1rem;
-  }
+.links a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 1rem;
+}
 
-  .link-item {
-    color: #fff;
-  }
+.link-item {
+  color: #fff;
+}
