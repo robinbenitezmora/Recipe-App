@@ -1,0 +1,9 @@
+<p><%= notice %></p>
+
+<%= render @food %>
+
+<div>
+  <%= link_to 'Back', foods_path %> |
+  <%= link_to 'Edit', edit_food_path(@food) %>
+  <%= button_to 'Destroy', @food, method: :delete %>
+</div>

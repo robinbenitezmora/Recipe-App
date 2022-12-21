@@ -1,0 +1,14 @@
+<p><%= notice %></p>
+
+<h1>Listing Recipe Foods</h1>
+
+<div id="recipe_foods">
+  <% @recipe_foods.each do |recipe_food| %>
+    <%= render recipe_food %>
+    <p>
+      <%= link_to 'Show', recipe_food %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to 'New Recipe Food', new_recipe_food_path %>

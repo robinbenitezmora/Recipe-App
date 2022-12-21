@@ -1,0 +1,19 @@
+<p><%= notice %></p>
+
+<h1>Listing foods</h1>
+<h2>My Favourite Foods</h2>
+
+<div id="foods">
+  <div class="food">
+    <p><strong>Food ID: </strong></p>
+    <p><strong>Name: </strong></p>
+    <p><strong>Measurement Unit: </strong></p>
+    <p><strong>Price: </strong></p>
+    <p><strong>Quantity: </strong></p>
+    <p><strong>User ID: </strong></p>
+    <p><stron>Activity: </strong></p>
+  </div>
+  <%= @foods.each do |food| %>
+    <%= render food %>
+  <% end %>
+</div>
