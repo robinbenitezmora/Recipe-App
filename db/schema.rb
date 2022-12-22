@@ -26,18 +26,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_21_091845) do
 
   create_table "inventories", force: :cascade do |t|
     t.string "name"
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id", null: false
+    t.text "description"
     t.index ["user_id"], name: "index_inventories_on_user_id"
   end
 
   create_table "inventory_foods", force: :cascade do |t|
-    t.integer "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.bigint "quantity"
     t.bigint "inventory_id", null: false
     t.bigint "food_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user"
     t.index ["food_id"], name: "index_inventory_foods_on_food_id"
     t.index ["inventory_id"], name: "index_inventory_foods_on_inventory_id"
   end
