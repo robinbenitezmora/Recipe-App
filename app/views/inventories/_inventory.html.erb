@@ -1,0 +1,11 @@
+<%= stylesheet_link_tag "application"%>
+
+<div class="logger_in_form">
+<div id="<%= dom_id(inventory) %>">
+  <p><strong><%= inventory.id %> </strong></p>
+  <p><strong><%= inventory.name %> </strong></p>
+  <p><strong><%= inventory.description %> </strong></p>
+  <p class="price"><%= inventory.user_id %></p>
+  <%= button_to "Delete inventory", @inventory, method: :delete %>
+</div>
+</div>
