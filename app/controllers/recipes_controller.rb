@@ -5,7 +5,12 @@ class RecipesController < ApplicationController
     @recipes = Recipe.where(user_id: current_user.id)
   end
 
-  def show; end
+  def show
+    @foods = current_user.foods
+    @inventories = Inventory.all
+    @recipe = current_user.recipes.includes(:recipe_foods).find(params[:id])
+    @recipes = Recipe.find(params[:id])
+  end
 
   def new
     @recipe = Recipe.new
