@@ -173,15 +173,22 @@ Example:
 
 > Mention all of the collaborators of this project.
 
+👤 **Robin Benitez**
+
+- GitHub: [@robinbenitezmora](https://github.com/robinbenitezmora)
+- Twitter: [@Mecanico_Robin](https://twitter.com/mecanico_robin)
+- LinkedIn: [@LinkedIn](https://www.linkedin.com/in/robin-benitez-mora/)
+
 👤 **Edith oga**
 
 - GitHub: [@vigehi](https://github.com/githubhandle)
+- LinkedIn [@LinkedIn](https://www.linkedin.com/in/edith-oga/)
 
 👤 **Oluyemi Paul**
 
 - GitHub: [@githubhandle](https://www.linkedin.com/in/paul-oluyemi-193966ab)
 - Twitter: [@twitterhandle](https://twitter.com/OluyemiPaul99)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/paul-oluyemi-193966ab)
+- LinkedIn: [@LinkedIn](https://linkedin.com/in/paul-oluyemi-193966ab)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

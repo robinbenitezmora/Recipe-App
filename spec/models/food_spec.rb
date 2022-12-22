@@ -1,7 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Food, type: :model do
+<<<<<<< HEAD
   subject { Food.new(name: 'Potatoe', price: 15.25, measurement_unit: 'Kg', user_id: 1)}
+=======
+  subject { Food.new(name: 'Potatoe', price: 15.25, measurementunit: 'Kg', user_id: 1) }
+>>>>>>> 96fef7b1b64344e376655c67a602444b5499781c
 
   before { subject.save }
 
@@ -28,9 +32,5 @@ RSpec.describe Food, type: :model do
   it 'price must be a float greater or equal than zero' do
     subject.price = -1
     expect(subject).to_not be_valid
-  end
-
-  it 'is valid with valid attributes' do
-    expect(subject).to be_valid
   end
 end
