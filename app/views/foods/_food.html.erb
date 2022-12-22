@@ -4,9 +4,9 @@
 <div id="<%= dom_id(food) %>">
   <p><strong><%= food.id %> </strong></p>
   <p><strong><%= food.name %> </strong></p>
-  <p><strong><%= food.measurementunit %> </strong></p>
+  <p><strong><%= food.measurement_unit %> </strong></p>
   <p class="price"><%= food.price %></p>
-  <p class="price"><%= food.quantity %> <%= food.measurementunit %></p>
+  <p class="price"><%= food.quantity %> <%= food.measurement_unit %></p>
   <p class="price"><%= food.user_id %></p>
   <%= button_to "Delete Food", @food, method: :delete %>
 </div>
