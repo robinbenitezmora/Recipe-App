@@ -2,18 +2,19 @@
 
 <div class="logger_in_form">
 <div id="<%= dom_id recipe %>">
-  <p class="custom-login"><strong>Recipe ID: </strong>
+<div id="all-recipes">
+  <p class="custom-login"><strong>Recipe</strong>
     <%= recipe.id %>
   </p>
   <p><strong>Name: </strong>
     <%= recipe.name %>
   </p>
   <p><strong>Preparation time: </strong>
-    <%= recipe.preparationtime %> minutes
+    <%= recipe.preparation_time %> minutes
   </p>
 
   <p><strong>Cooking time: </strong>
-    <%= recipe.cookingtime %> minutes
+    <%= recipe.cooking_time %> minutes
   </p>
 
   <p><strong>Description: </strong>
@@ -27,6 +28,7 @@
   <p><strong>User: </strong>
     <%= recipe.user_id %>
   </p>
+  </div>
 
 </div>
 </div>

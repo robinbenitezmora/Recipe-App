@@ -324,3 +324,8 @@
   .link-item {
     color: #fff;
   }
+
+  #all-recipes {
+    border: 2px solid black;
+    margin: 0 150px 0 150px;
+  }

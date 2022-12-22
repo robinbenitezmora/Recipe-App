@@ -17,10 +17,16 @@
     <p><strong>Price: </strong></p>
     <p><strong>Quantity: </strong></p>
     <p><strong>User ID: </strong></p>
-    <p><stron>Activity: </strong></p>
+    <p><strong>Activity: </strong></p>
   </div>
-  <%= @foods.each do |food| %>
+
+  <div id="foods">
+   <%= @foods.each do |food| %>
     <%= render food %>
+     <p><%= link_to 'Show the food', food %></p>
   <% end %>
+</div>
+
+<%= link_to 'New Food', new_food_path %>
 </div>
 </div>

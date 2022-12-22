@@ -14,8 +14,8 @@
     <header>
       <div class="logo">Logo</div>
       <ul id="links" style='margin-right:20%;'>
-        <a class="link-item"><%= link_to "My Recipes", root_path %></a>
-        <a class="link-item" style='margin-left:5px;'><%= link_to "My Foods", foods_path %></a>
+        <a class="link-item"><%= link_to "My Foods", root_path%></a>
+        <a class="link-item" style='margin-left:5px;'><%= link_to "My Recipes", recipes_path %></a>
         <a class="link-item" style='margin-left:5px;'><%= link_to "Recipe foods index", recipe_foods_path %></a>
         <% if user_signed_in? %>
           <a style='margin-left:5px;'><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></a>

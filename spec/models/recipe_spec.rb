@@ -4,8 +4,8 @@ RSpec.describe Recipe, type: :model do
   subject do
     Recipe.new(
       name: 'Beans',
-      preparationtime: 20,
-      cookingtime: 30,
+      preparation_time: 20,
+      cooking_time: 30,
       description: 'Beans Soap',
       public: true,
       user_id: 1
