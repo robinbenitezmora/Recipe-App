@@ -11,6 +11,7 @@ class RecipeFoodsController < ApplicationController
     @recipe = Recipe.find(params[:id])
     @recipe_food = RecipeFood.new
   end
+
   def edit; end
 
   def create
@@ -25,20 +26,6 @@ class RecipeFoodsController < ApplicationController
     end
     redirect_to user_recipe_path(params[:id]), flash: { success: 'Recipe food has been added successfully!' }
   end
-
-  # def create
-  #   @recipe_food = RecipeFood.new(recipe_food_params)
-
-  #   respond_to do |format|
-  #     if @recipe_food.save
-  #       format.html { redirect_to recipe_food_url(@recipe_food), notice: 'Recipe food was successfully created.' }
-  #       format.json { render :show, status: :created, location: @recipe_food }
-  #     else
-  #       format.html { render :new, status: :unprocessable_entity }
-  #       format.json { render json: @recipe_food.errors, status: :unprocessable_entity }
-  #     end
-  #   end
-  # end
 
   def update
     respond_to do |format|

@@ -23,7 +23,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @recipe.user_id = current_user.id
 
-    respond_to 
+    respond_to
     if @recipe.save
       format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully created.' }
       format.json { render :show, status: :created, location: @recipe }
@@ -31,7 +31,6 @@ class RecipesController < ApplicationController
       format.html { render :new, status: :unprocessable_entity }
       format.json { render json: @recipe.errors, status: :unprocessable_entity }
     end
-
   end
 
   def update
