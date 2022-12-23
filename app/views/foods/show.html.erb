@@ -1,14 +1,2 @@
-<%= stylesheet_link_tag "application"%>
-
-<div class="logger_in_form">
-<p><%= notice %></p>
-
-<%= render @food %>
-
-<div>
- <h3>Welcome <%= current_user.name %></h3>
-  <%= link_to 'Back', foods_path %> |
-  <%= link_to 'Edit', edit_food_path(@food) %>
-  <%= button_to 'Destroy', @food, method: :delete %>
-</div>
-</div>
+<h1>Foods#show</h1>
+<p>Find me in app/views/foods/show.html.erb</p>

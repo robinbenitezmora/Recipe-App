@@ -1,32 +1,38 @@
-<%= stylesheet_link_tag "application"%>
+<h1>Foods List</h1>
+<div>
+    <div class="bg-light d-flex flex-row-reverse">
+    </div>
 
-<div class="logger_in_form">
-<p><%= notice %></p>
-
-<h1 class="custom-login">Listing foods</h1>
-<h2 class="custom-login">My Favourite Foods</h2>
-
-<%= stylesheet_link_tag "application"%>
-
-<div class="logger_in_form">
-<div id="foods">
-  <div class="food">
-    <p><strong>Food ID: </strong></p>
-    <p><strong>Name: </strong></p>
-    <p><strong>Measurement Unit: </strong></p>
-    <p><strong>Price: </strong></p>
-    <p><strong>Quantity: </strong></p>
-    <p><strong>User ID: </strong></p>
-    <p><strong>Activity: </strong></p>
-  </div>
-
-  <div id="foods">
-   <%= @foods.each do |food| %>
-    <%= render food %>
-     <p><%= link_to 'Show the food', food %></p>
-  <% end %>
-</div>
-
-<%= link_to 'New Food', new_food_path %>
-</div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Food</th>
+            <th scope="col">Measurement unit</th>
+            <th scope="col">Price</th>
+            <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% if @foods.count == 0 %>
+                <tr class="Alert alert-warning text-center fs-3">                   
+                    <td colspan="5">
+                        <span>No Food Registered</span>
+                    </td>                        
+                </tr>
+            <% else %>
+                <% count = 0 %>
+                <% @foods.each  do |item| %>
+                    <tr>
+                        <th scope="row"><%= count = count + 1 %></th>
+                        <td><%= item.name %></td>
+                        <td><%= item.measurement_unit %></td>
+                        <td><b>$ </b><%= item.price %></td>
+                        <td>   <%= button_to "delete", food_path(:id => item.id), :method => :delete %>
+                  </td>
+                    </tr>
+                <% end %> 
+            <% end %>       
+        </tbody>
+    </table>
 </div>

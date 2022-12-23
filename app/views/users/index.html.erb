@@ -1,17 +1,12 @@
-<p><%= notice %></p>
-<%= stylesheet_link_tag "application"%>
-
-<div class="logger_in_form">
-<h1>Users</h1>
-
-<div id="users">
-  <%= @users.each do |user| %>
-    <%= render user %>
-    <p>
-      <%= link_to 'Show', user %>
-    </p>
-  <% end %>
+<div class="users-container">
+    <h1 class="users-heading">Users Count <%= @users.length%></h1>
+    <% @users.each do |user| %>
+        
+        <div class="user-box">
+            <div class="user-info-box">
+                <h2 class="user-name"><%= user.name %></h2>
+            </div>
+        </div>
+        <% end%>
+    
 </div>
-</div>
-
-<%= link_to 'New User', new_user_path %>

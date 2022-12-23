@@ -1,16 +1,18 @@
+<div class="d-flex flex-column align-items-center justify-content-center p-5" >
+    <h3>Recipes List</h3>
+    <%= link_to "Create new Recipe", new_user_recipe_path, class: 'btn btn-sm btn-primary mb-2 align-self-center' %>
+        <% @recipes.each do |recipe| %>
 
-<%= stylesheet_link_tag "application"%>
-
-<div class="logger_in_form"><p><%= notice %></p>
-
-<h1>Recipes</h1>
-
-<div id="recipes">
-  <% @recipes.each do |recipe| %>
-    <%= render recipe %>
-    <p><%= link_to 'Show the recipe', recipe %></p>
-  <% end %>
+        <div class="d-flex flex-row bd-highlight mb-3 border border-dark p-2 w-100">
+			<div class="p-2 bd-highlight">
+				<h4>
+                    <%= link_to recipe.name, user_recipe_path(recipe.user_id, recipe.id) %>
+                </h4>
+                <% if can? :manage, recipe %>
+                    <%= button_to 'Delete', { action: "destroy", id: recipe.id }, method: :delete, class: "text-danger fs-6" %>
+                <% end %>
+			</div>
+			<div class="p-2 bd-highlight"><%= recipe.description %></div>
+		</div>
+    <% end %>
 </div>
-
-<%= link_to 'New Recipe', new_recipe_path %>
-<div>

@@ -1,27 +1,26 @@
-<%= stylesheet_link_tag "application"%>
+<div class="d-flex flex-column align-items-center justify-content-center p-5">
+	<% if @inventories.empty? %>
+		<h3> You have no inventory </h3>	
+	<%= link_to 'Add new inventory', new_user_inventory_path, class: 'btn btn-sm btn-primary mb-2 align-self-center' %>	
 
-<div class="logger_in_form">
-<p><%= notice %></p>
-
-<h1 class="custom-login">Listing inventorys</h1>
-
-<%= stylesheet_link_tag "application"%>
-
-<div class="logger_in_form">
-<div id="inventorys">
-  <div class="inventory">
-    <p><strong>inventory ID: </strong></p>
-    <p><strong>Name: </strong></p>
-    <p><strong>Description </strong></p>
-  </div>
-
-  <div id="inventorys">
-   <%= @inventory.each do |inventory| %>
-    <%= render inventory %>
-     <p><%= link_to 'Show the inventory', inventory %></p>
-  <% end %>
-</div>
-
-<%= link_to 'New inventory', new_inventory_path %>
-</div>
+	<% else %>
+		<h3>Your inventories list</h3>
+	<%= link_to 'Add new inventory', new_user_inventory_path, class: 'btn btn-sm btn-primary mb-2 align-self-start' %>	
+		<% @inventories.each do |inventory| %>
+		
+		<div class="d-flex flex-row bd-highlight mb-3 border border-dark p-2 w-100">
+			<div class="p-2 bd-highlight">
+				<h4 class="me-3">
+					<%= link_to inventory.name, user_inventory_path(inventory.user_id, inventory) %>
+				</h4>
+				<% if can? :destroy, inventory %>
+					<%= button_to 'Delete', user_inventory_path(inventory.user_id, inventory), method: :delete, class: 'text-danger fw-bolder fs-6' %>
+				<% end %>
+			</div>
+			<div class="p-2 bd-highlight">click on the inventory to see the list of foods in this inventory</div>
+			
+		</div>		
+				
+		<% end %>
+	<% end %>
 </div>

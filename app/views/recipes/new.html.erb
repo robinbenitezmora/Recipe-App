@@ -1,11 +1,31 @@
-<%= stylesheet_link_tag "application"%>
+<h1>New recipes</h1>
 
-<div class="logger_in_form">
-<h1 class="custom-login">New Recipe</h1>
-
-<%= render 'form', recipe: @recipe %>
+<%= form_with model: [@user, @user.recipes.build], method: :post do |form| %>
+<div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+</div>
 
 <div>
-  <%= link_to 'Back', recipes_path %>
+    <%= form.label :preperation_time, style: "display: block" %>
+    <%= form.text_field :preperation_time %>
 </div>
+
+<div>
+    <%= form.label :cooking_time, style: "display: block" %>
+    <%= form.text_field :cooking_time %>
 </div>
+
+<div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description %>
+</div>
+
+<div>
+    <%= form.label :public, style: "display: block" %>
+    <%= form.text_field :public %>
+</div>
+
+<%= form.submit %>
+<% end %>
+<%= link_to "Go back", user_recipes_path %>

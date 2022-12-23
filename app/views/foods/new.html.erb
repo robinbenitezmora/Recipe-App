@@ -1,13 +1,12 @@
-<%= stylesheet_link_tag "application"%>
-
-<div class="logger_in_form">
-<h1 class="custom-login">New Food</h1>
-
-<%= render 'form', food: @food %>
-
-<div>
-  <%= link_to 'Back', foods_path %>
-</div>
-
-
+<div class="d-flex flex-column align-items-center justify-content-center">
+    <h1>Add new food</h1>
+    <%= form_with model: @food, url: foods_path,class: "d-flex flex-column", method: :post do |form| %>
+        <%= form.label :name, 'Name' %>
+        <%= form.text_field :name %>
+        <%= form.label :measurement_unit, 'Measurement unity' %>
+        <%= form.text_field :measurement_unit %>
+        <%= form.label :price, 'Price' %>
+        <%= form.number_field :price %><br />
+        <%= form.submit 'Add Food' %>
+    <% end %>
 </div>

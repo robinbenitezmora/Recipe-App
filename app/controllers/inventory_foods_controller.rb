@@ -1,44 +1,34 @@
 class InventoryFoodsController < ApplicationController
-    load_and_authorize_resource :inventory
-    load_and_authorize_resource :inventory_food, through: :inventory
-  
-    def index
-      @inventory_foods = InventoryFood.all
-    end
-  
-    def new
-      @inventory_food = InventoryFood.new
-      @foods = Food.all
-      @current_inventory = Inventory.find(params[:inventory_id])
-    end
-  
-    def create
-      @current_inventory = Inventory.find(params[:inventory_id])
-      @inventory_food = @current_inventory.inventory_foods.new(inventory_food_params)
-  
-      respond_to do |format|
-        if @inventory_food.save
-          format.html { redirect_to inventory_path(@current_inventory.id), notice: 'Inventory food created successfully' }
-        else
-          format.html { render :new, status: :unprocessable_entity, notice: 'Inventory food an error occured' }
-        end
-      end
-    end
-  
-    def destroy
-      @inventory_food = InventoryFood.find(params[:id])
-      authorize! :destroy, @inventory_food
-      @inventory_food.destroy!
-  
-      respond_to do |format|
-        format.html { redirect_to inventory_url, notice: 'Inventory food successfully deleted.' }
-      end
-    end
-  
-    private
-  
-    def inventory_food_params
-      params.require(:inventory_foods).permit(:food_id, :quantity)
-    end
+  def new
+    @inventory = Inventory.find(params[:id])
+    @inventory_food = InventoryFood.new
   end
-  
+
+  def destroy
+    @inventory_food = InventoryFood.find_by(id: params[:food_id])
+
+    if @inventory_food.destroy
+      flash[:notice] = 'Inventory food deleted successfully!!'
+    else
+      flash[:alert] = 'Inventory could not be deleted.'
+    end
+    redirect_to user_inventory_path(params[:id])
+  end
+
+  def create
+    food_list = params[:inventory_food][:food_list]
+    food_list = food_list.drop(1)
+    food_list.each do |food|
+      next unless InventoryFood.where(food_id: food.to_i, inventory_id: params[:id]).blank?
+
+      new_inventory_food = InventoryFood.new(food_id: food.to_i, quantity: params[:inventory_food][:quantity],
+                                             inventory_id: params[:id])
+      new_inventory_food.save
+    end
+    redirect_to user_inventory_path(params[:id]), flash: { success: 'Inventory food has been added successfully!' }
+  end
+
+  def inventory_food_params
+    params.require(:inventory_food).permit(:food_list, :quantity)
+  end
+end

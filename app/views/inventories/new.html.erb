@@ -1,13 +1,13 @@
-<%= stylesheet_link_tag "application"%>
-
-<div class="logger_in_form">
-<h1 class="custom-login">New inventory</h1>
-
-<%= render 'form', inventory: @inventory %>
-
-<div>
-  <%= link_to 'Back', inventories_path %>
+<div class="d-flex flex-column align-items-center justify-content-center p-5" >
+    <h3> Create a new inventory: </h3>
+    <%= form_with model: @inventory, class: 'row g-2', url: user_inventories_path, method: :post do |form| %>
+        <div class="col">
+            <%= form.text_field :name, placeholder:'Inventory name', class:'form-control' %>
+        </div>
+        
+        <div class="col">
+            <%= form.submit 'Add new inventory', class: 'form-control btn btn-primary'%> 
+        </div>
+    <% end %>
 </div>
 
-
-</div>
