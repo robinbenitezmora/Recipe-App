@@ -25,11 +25,11 @@
       </tr>
     </thead>
     <tbody>
-      <% @foods.each do |food| %>
+      <% @foods.each do |f| %>
         <tr>
-          <td><%= food.food.name %></td>
-          <td><%= food.quantity %></td>
-          <td><%= button_to 'Delete', "/recipe_foods/#{@recipe.id}/destroy/#{food.id}", method: :delete, class: "btn btn-outline-danger" %></td>
+          <td><%= f.name %></td>
+          <td><%= f.quantity %></td>
+          <td><%= button_to 'Delete', "/recipe_foods/#{@recipe.id}/destroy/#{f.id}", method: :delete, class: "btn btn-outline-danger" %></td>
         </tr>
       <% end %>
     </tbody>
