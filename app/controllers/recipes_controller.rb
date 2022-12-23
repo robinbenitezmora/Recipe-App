@@ -2,7 +2,7 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: %i[show edit update destroy]
 
   def index
-    @recipes = Recipe.where(user_id: current_user.id)
+    @recipes = current_user.recipes
   end
 
   def show
@@ -13,53 +13,49 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @user = User.find(params[:user_id])
     @recipe = Recipe.new
   end
 
-  def edit; end
-
   def create
-    @recipe = Recipe.new(recipe_params)
-    @recipe.user_id = current_user.id
+    @recipe = current_user.recipes.new(recipe_params)
 
-    respond_to
-    if @recipe.save
-      format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully created.' }
-      format.json { render :show, status: :created, location: @recipe }
-    else
-      format.html { render :new, status: :unprocessable_entity }
-      format.json { render json: @recipe.errors, status: :unprocessable_entity }
-    end
-  end
-
-  def update
     respond_to do |format|
-      if @recipe.update(recipe_params)
-        format.html { redirect_to recipe_url(@recipe), notice: 'Recipe was successfully updated.' }
-        format.json { render :show, status: :ok, location: @recipe }
+      if @recipe.save
+        format.html { redirect_to recipes_url, notice: 'Recipe was successfully created.' }
       else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @recipe.errors, status: :unprocessable_entity }
+        format.html { render :new, status: :unprocessable_entity }
       end
     end
   end
 
   def destroy
     @recipe.destroy
+
     respond_to do |format|
-      format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to recipes_url, notice: 'Recipe was successfully deleted.' }
     end
+  end
+
+  def update
+    @recipe = Recipe.find(params[:id])
+    if @recipe.public
+      @recipe.update(public: false)
+      flash.now[:notice] = 'You have updated the recipe status to private'
+    else
+      @recipe.update(public: true)
+      flash.now[:notice] = 'You have updated the recipe status to public'
+    end
+    # redirect_to recipe_path
   end
 
   private
 
+  # Use callbacks to share common setup or constraints between actions.
   def set_recipe
     @recipe = Recipe.find(params[:id])
   end
 
   def recipe_params
-    params.require(:recipe).permit(:name, :preparationtime, :cookingtime, :description, :public)
+    params.require(:recipe).permit(:name, :preparation_time, :cooking_time, :description, :public)
   end
 end

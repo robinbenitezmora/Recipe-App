@@ -1,38 +1,24 @@
-<h1>Foods List</h1>
-<div>
-    <div class="bg-light d-flex flex-row-reverse">
-    </div>
-
-    <table class="table table-bordered table-striped">
-        <thead>
-            <tr>
-            <th scope="col">#</th>
-            <th scope="col">Food</th>
-            <th scope="col">Measurement unit</th>
-            <th scope="col">Price</th>
-            <th scope="col">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <% if @foods.count == 0 %>
-                <tr class="Alert alert-warning text-center fs-3">                   
-                    <td colspan="5">
-                        <span>No Food Registered</span>
-                    </td>                        
-                </tr>
-            <% else %>
-                <% count = 0 %>
-                <% @foods.each  do |item| %>
-                    <tr>
-                        <th scope="row"><%= count = count + 1 %></th>
-                        <td><%= item.name %></td>
-                        <td><%= item.measurement_unit %></td>
-                        <td><b>$ </b><%= item.price %></td>
-                        <td>   <%= button_to "delete", food_path(:id => item.id), :method => :delete %>
-                  </td>
-                    </tr>
-                <% end %> 
-            <% end %>       
-        </tbody>
-    </table>
+<div class="foods-btn">
+  <h2>Food List</h2>
+  <%= link_to 'Add Food', new_food_path %>
 </div>
+<% if @foods.empty? %>
+  <p class="no-food">No foods added yet. Please use the button above ☝️ to add a new food</p>
+<% else %>
+<table class="table table-hover table-striped table-bordered">
+  <thead class="bg-color">
+    <tr>
+      <th scope="col">Food</th>
+      <th scope="col">Measurement Unit</th>
+      <th scope="col">Unit Price</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      <% @foods.each do |food| %>
+        <%= render 'shared/table', food: food %>
+      <% end %>
+  </tbody>
+</table>
+<% end %>

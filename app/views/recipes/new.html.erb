@@ -1,31 +1,7 @@
-<h1>New recipes</h1>
-
-<%= form_with model: [@user, @user.recipes.build], method: :post do |form| %>
-<div>
-    <%= form.label :name, style: "display: block" %>
-    <%= form.text_field :name %>
+<div  class="form-heading">
+  <h2>Create Your Recipe</h2>
+  <hr style="margin: 5px auto;">
 </div>
-
-<div>
-    <%= form.label :preperation_time, style: "display: block" %>
-    <%= form.text_field :preperation_time %>
-</div>
-
-<div>
-    <%= form.label :cooking_time, style: "display: block" %>
-    <%= form.text_field :cooking_time %>
-</div>
-
-<div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_field :description %>
-</div>
-
-<div>
-    <%= form.label :public, style: "display: block" %>
-    <%= form.text_field :public %>
-</div>
-
-<%= form.submit %>
-<% end %>
-<%= link_to "Go back", user_recipes_path %>
+<div class="recipe-form">
+  <%= render "recipe" %>
+</div> 

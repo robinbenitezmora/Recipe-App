@@ -1,5 +1,14 @@
-require 'spec_helper'
+require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  context 'associations' do
+    it { should have_many(:foods) }
+    it { should have_many(:recipes) }
+    it { should have_many(:inventories) }
+  end
+
+  context 'values not empty' do
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:email) }
+  end
 end

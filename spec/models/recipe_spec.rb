@@ -1,46 +1,15 @@
 require 'rails_helper'
 
 RSpec.describe Recipe, type: :model do
-  subject do
-    Recipe.new(
-      name: 'Beans',
-      preparation_time: 20,
-      cooking_time: 30,
-      description: 'Beans Soap',
-      public: true,
-      user_id: 1
-    )
+  context 'associations' do
+    it { should belong_to(:user).class_name('User') }
+    it { should have_many(:recipe_foods) }
   end
 
-  before { subject.save }
-
-  it 'name should be present' do
-    subject.name = nil
-    expect(subject).to_not be_valid
-  end
-
-  it 'cooking_time should be present' do
-    subject.cookingtime = nil
-    expect(subject).to_not be_valid
-  end
-
-  it 'description should be present' do
-    subject.description = nil
-    expect(subject).to_not be_valid
-  end
-
-  it 'public should be present' do
-    subject.public = nil
-    expect(subject).to_not be_valid
-  end
-
-  it 'user_id should be present' do
-    subject.user_id = nil
-    expect(subject).to_not be_valid
-  end
-
-  it 'cooking_time must be a integer greater or equal than zero' do
-    subject.cookingtime = -1
-    expect(subject).to_not be_valid
+  context 'values not empty' do
+    it { should validate_presence_of(:name) }
+    it { should validate_presence_of(:preparation_time) }
+    it { should validate_presence_of(:cooking_time) }
+    it { should validate_presence_of(:description) }
   end
 end

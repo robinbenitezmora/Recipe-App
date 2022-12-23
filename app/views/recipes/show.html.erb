@@ -1,41 +1,87 @@
-<section>
-    <h1><%= @recipe.name %></h1>
-    <div class="showContainer">
-    <div>
-        <p><%= @recipe.preparation_time %></p>
-        <p><%= @recipe.cooking_time %></p>
-        <%= link_to "Generate shopping list", user_recipes_path %>
-    </div>
-
-    <div>
-        <p>Public: <%= @recipe.public %></p>
-        <% if can? :manage, @recipe %>
-        <%= link_to 'Add ingredient', "/recipe_foods/#{@recipe.id}/new", class: 'btn btn-primary'%>
+<div class="container p-2 rounded show-container">
+  <div class="my-3 text-center">
+    <h2 class><%= @recipe.name%></h2>
+  </div>
+  <div>
+    <div class="split">
+      <div class="d-flex justify-content-between p-2">
+        <h5> Preparation time: <%= @recipe.preparation_time %> min </h5>
+        <div class="public-btn form-check form-switch d-flex flex-row">
+          <p> Public: <span> <%= form_with url:recipe_path(@recipe.id), :method => :patch do |f| %>
+          <%= f.check_box :public, class:"mx-4 form-check-input", checked: @recipe.public, onchange: "this.form.submit();", style: "background-color: #DD7230;"  %>
+           </td>
         <% end %>
+        </span></p>
+      </div>
+      </div>
     </div>
+    <div>
+      <h5 class="p-2"> Cooking time: <%= @recipe.cooking_time %> min </h5>
+    </div>
+    <div class="d-flex justify-content-around">
+    <div class="w-30 foods-btn">
+      <a "Generate shopping list" class= "btn btn-primary btn-floating mx-1 click_btns">Generate shopping list</a>
+    </div>
+    <div class="foods-btn">
+      <a class= "btn btn-primary btn-floating mx-1 click_btn">Add ingredient</a>
+    </div>
+    </div>
+  </div>
 </div>
-
-<div>
-    <table class="table table-striped table-bordered w-100 mt-4">
-    <thead>
+<hr class="divider">
+<% if @recipe.recipe_foods.empty? %>
+  <p class="no-food">No ingredients added yet. Please use the button above ☝️ to add a new ingredient</p>
+<% else %>
+<table class="table table-hover table-striped table-bordered">
+  <thead class="bg-color">
+    <tr>
+      <th scope="col">Food</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Value</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipe.recipe_foods.each do |recipe| %>
       <tr>
-        <th scope="col">Food</th>
-        <th scope="col">Quantity</th>
-        <th scope="col">Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <% @foods.each do |f| %>
-        <tr>
-          <td><%= f.name %></td>
-          <td><%= f.quantity %></td>
-          <td><%= button_to 'Delete', "/recipe_foods/#{@recipe.id}/destroy/#{f.id}", method: :delete, class: "btn btn-outline-danger" %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+        <td><%= recipe.food.food %></td>
+        <td><%= recipe.quantity %><%= recipe.food.measurement_unit %></td>
+        <td>$<%= recipe.quantity * recipe.food.unit_price %></td>
+        <td>
+          <% if can? :destroy, recipe %>
+            <%= link_to 'Remove', recipe_recipe_food_path(@recipe.id, recipe.id), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' },
+            class: "btn btn-outline-danger", type:"button" %>
+          <% end %>
+        </td>
+      </tr> 
+    <% end %>
+  </tbody>
+</table>
+<% end %>
+
+<div class='recipe-modal modals'>
+<%= render 'add_recipe_food' %>
+</div>
+<div class='shopping-modal modals'>
+  <%= render 'add_shopping_list' %>
 </div>
 
-<%= link_to "All recipes", user_recipes_path, class: "btn btn-primary" %>
 
-</section>
+<script>
+  document.querySelector('.click_btn').addEventListener('click', (event) => {
+    console.log('click recipe');
+    document.querySelector('.recipe-modal').style.display = 'block'
+  })
+
+  document.querySelector('.click_btns').addEventListener('click', (event) => {
+    console.log('click shopping');
+    document.querySelector('.shopping-modal').style.display = 'block'
+  })
+
+  document.querySelectorAll('.modal-contents > div:first-of-type > span').forEach(element => {
+    element.addEventListener('click', () => {
+    document.querySelector('.recipe-modal').style.display = 'none'
+    document.querySelector('.shopping-modal').style.display = 'none'
+  })
+})
+</script>

@@ -1,13 +1,18 @@
-<div class="d-flex flex-column align-items-center justify-content-center p-5" >
-    <h3> Create a new inventory: </h3>
-    <%= form_with model: @inventory, class: 'row g-2', url: user_inventories_path, method: :post do |form| %>
-        <div class="col">
-            <%= form.text_field :name, placeholder:'Inventory name', class:'form-control' %>
-        </div>
-        
-        <div class="col">
-            <%= form.submit 'Add new inventory', class: 'form-control btn btn-primary'%> 
-        </div>
-    <% end %>
+<div  class="form-heading">
+  <h2>Add New Inventory</h2>
+  <hr style="margin: 5px auto;">
 </div>
 
+<div class="form-group">
+  <%= form_with(model: @inventory) do |f| %>
+    <div class="field">
+      <%= f.text_field :name, placeholder: "Inventory Name", autofocus: true %>
+    </div>
+    <div class="field">
+      <%= f.text_field :description, placeholder: "Please input inventory desc" %>
+    </div>
+    <div class="actions">
+      <%= f.submit "Add Inventory" %>
+    </div>
+  <% end %>
+<div>

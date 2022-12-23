@@ -1,32 +1,20 @@
 require 'rails_helper'
 
 RSpec.describe Food, type: :model do
-  subject { Food.new(name: 'Potatoe', price: 15.25, measurement_unit: 'Kg', user_id: 1) }
-
-  before { subject.save }
-
-  it 'name should be present' do
-    subject.name = nil
-    expect(subject).to_not be_valid
+  context 'associations' do
+    it { should belong_to(:user).class_name('User') }
   end
 
-  it 'price should be present' do
-    subject.price = nil
-    expect(subject).to_not be_valid
+  context 'values not empty' do
+    it { should validate_presence_of(:food) }
+    it { should validate_presence_of(:measurement_unit) }
+    it { should validate_presence_of(:unit_price) }
   end
 
-  it 'measurement_unit should be present' do
-    subject.measurement_unit = nil
-    expect(subject).to_not be_valid
-  end
-
-  it 'user_id should be a float greater or equal than zero' do
-    subject.user_id = nil
-    expect(subject).to_not be_valid
-  end
-
-  it 'price must be a float greater or equal than zero' do
-    subject.price = -1
-    expect(subject).to_not be_valid
+  context 'values should be numerical' do
+    it do
+      should validate_numericality_of(:unit_price)
+        .is_greater_than_or_equal_to(0)
+    end
   end
 end

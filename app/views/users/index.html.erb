@@ -1,12 +1,10 @@
-<div class="users-container">
-    <h1 class="users-heading">Users Count <%= @users.length%></h1>
-    <% @users.each do |user| %>
-        
-        <div class="user-box">
-            <div class="user-info-box">
-                <h2 class="user-name"><%= user.name %></h2>
-            </div>
-        </div>
-        <% end%>
-    
-</div>
+
+<ul>
+  <% @users.each do |user| %>
+    <li class="card">
+      <div class="card-details scale-right">
+            <h2><%= user.name %></h2>
+      </div>
+    </li>
+  <% end %>
+</ul>
