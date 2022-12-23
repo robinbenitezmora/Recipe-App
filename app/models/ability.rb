@@ -1,3 +1,6 @@
 class Ability
-  include CanCan::Ability :read, :all
+  include CanCan::Ability
+
+  def initialize()
+  end
 end
