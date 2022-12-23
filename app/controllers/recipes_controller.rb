@@ -13,8 +13,6 @@
 
 #   def edit; end
 
-
-
 #   def update
 #     respond_to do |format|
 #       if @recipe.update(recipe_params)
@@ -73,7 +71,7 @@ class RecipesController < ApplicationController
   #     render :new
   #   end
   # end
-    def create
+  def create
     @recipe = Recipe.new(recipe_params)
     @recipe.user_id = current_user.id
 
@@ -107,4 +105,3 @@ class RecipesController < ApplicationController
     params.require(:recipe).permit(:name, :description, :preparation_time, :cooking_time, :public)
   end
 end
-
